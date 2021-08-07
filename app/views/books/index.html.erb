@@ -1,3 +1,13 @@
+<h1>Books</h1>
+
+<table>
+  <tr>  <th>Title</th>  <th>Body</th> 
+</tr>
+  <% @books.each do |list| %>
+  <tr><td><%= list.title %></td> <td><%= list.body %></td> <td><%= link_to " Show ", book_path(list.id)  %></td><td><%= link_to " Edit ", edit_book_path(list.id) %></td> <td><%= link_to " Destroy ", book_path(list.id) , method: :delete%></td></tr>
+  
+<% end %>
+</table>
 <h1>New Books</h1>
 <%= form_with model:@book, local:true do |f| %>
 
@@ -8,11 +18,5 @@
   <%= f.text_area :body %>
 
   <%= f.submit 'Create Book' %>
-<h1>Books</h1>>
-<% @books.each do |list| %>
-  <p>Title</p>
-  <span><%= list.title %></span>
-  <p>Body</p>
-  <span><%= list.body %></span>
-<% end %>
+
 <% end %>
